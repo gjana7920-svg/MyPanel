@@ -1,25 +1,20 @@
-from flask import Flask, request, jsonify
+import os
+from flask import Flask, request, jsonify, send_from_directory
 
 app = Flask(__name__)
 
-API_KEY = "938657265"
+API_KEY = os.environ.get("API_KEY","")
 
-@app.after_request
-def add_cors(response):
-    response.headers["Access-Control-Allow-Origin"] = "http://127.0.0.1:8080"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
-    response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
-    return response
+@app.route("/")
+def home():
+    return send_from_directory(".", "index.html")
 
-@app.route("/verify", methods=["POST", "OPTIONS"])
+@app.route("/verify", methods=["POST"])
 def verify():
-    if request.method == "OPTIONS":
-        return "", 204
-
     data = request.get_json(silent=True) or {}
     key = data.get("api_key", "")
 
-    if key == API_KEY:
+    if key and key == API_KEY:
         return jsonify({
             "success": True,
             "message": "Access granted"
@@ -31,4 +26,5 @@ def verify():
     }), 401
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
