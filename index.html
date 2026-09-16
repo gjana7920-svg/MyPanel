@@ -96,7 +96,7 @@ input{
     id="code"
     placeholder="API Key"
     inputmode="numeric"
-    maxlength="9"
+    maxlength="10"
     autocomplete="off"
 >
 
@@ -113,9 +113,9 @@ async function login() {
     const code = document.getElementById("code").value.trim();
     const message = document.getElementById("message");
 
-    if (!/^\d{9}$/.test(code)) {
+    if (!/^\d{10}$/.test(code)) {
         message.className = "error";
-        message.innerText = "✕ Enter a valid 9-digit API Key";
+        message.innerText = "✕ Enter a valid 10-digit API Key";
         return;
     }
 
