@@ -6,74 +6,235 @@
 <title>UR MASUD PANEL</title>
 
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#050505;
+  --card:#0f141c;
+  --text:#fff;
+  --muted:#aeb8c8;
+  --line:#293444;
+  --blue:#168cff;
+}
+
 body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#050505;
-    color:white;
-    font-family:Arial,sans-serif;
+  min-height:100vh;
+  background:radial-gradient(circle at top,#18283d,#050505 55%);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
+
+body.light{
+  --bg:#f4f6f8;
+  --card:#fff;
+  --text:#111;
+  --muted:#59636f;
+  --line:#d5dbe2;
+  background:#f4f6f8;
+}
+
 .panel{
-    width:90%;
-    max-width:400px;
-    padding:30px;
-    background:#111;
-    border:1px solid #333;
-    border-radius:15px;
-    text-align:center;
+  width:100%;
+  max-width:430px;
+  background:rgba(15,20,28,.96);
+  border:1px solid rgba(0,170,255,.35);
+  border-radius:22px;
+  padding:28px 22px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(0,140,255,.15);
 }
-h2{margin-bottom:8px}
+
+body.light .panel{
+  background:#fff;
+}
+
+.logo{
+  width:110px;
+  height:110px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:15px;
+}
+
+h1{
+  font-size:27px;
+  margin-bottom:8px;
+}
+
 .subtitle{
-    color:#888;
-    margin-bottom:25px;
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
 }
+
 .login-buttons{
-    display:grid;
-    gap:12px;
-    margin-bottom:25px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:20px;
 }
-.login-buttons button{
-    width:100%;
-    padding:13px;
-    border:1px solid #444;
-    border-radius:8px;
-    background:#1b1b1b;
-    color:white;
-    font-size:15px;
+
+.login-buttons button,
+.menu-btn{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#151d2a;
+  color:var(--text);
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
-input{
-    width:100%;
-    padding:13px;
-    border:1px solid #444;
-    border-radius:8px;
-    background:#080808;
-    color:white;
-    outline:none;
-    margin-bottom:12px;
+
+.menu-btn{
+  text-align:left;
+  margin-top:8px;
 }
+
+.login-buttons button:active,
+.menu-btn:active,
+.access-btn:active{
+  transform:scale(.98);
+}
+
+.key-title{
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+#code{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  outline:none;
+  background:#0a0f19;
+  color:white;
+  text-align:center;
+  font-size:17px;
+  letter-spacing:2px;
+}
+
+#code:focus{
+  border-color:var(--blue);
+}
+
 .access-btn{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:8px;
-    background:white;
-    color:black;
-    font-weight:bold;
+  width:100%;
+  margin-top:12px;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:var(--blue);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
+
 #message{
-    margin-top:15px;
-    font-weight:bold;
+  min-height:22px;
+  margin-top:15px;
+  font-size:14px;
 }
-.success{color:#4ade80}
-.error{color:#f87171}
+
+.success{color:#38e58c}
+.error{color:#ff5d6c}
+
 .footer{
-    margin-top:25px;
-    color:#555;
-    font-size:12px;
+  margin-top:20px;
+  color:#68758a;
+  font-size:11px;
+  line-height:1.6;
+}
+
+.settings{
+  display:none;
+  margin-top:20px;
+  text-align:left;
+  border-top:1px solid var(--line);
+  padding-top:18px;
+}
+
+.settings.show{
+  display:block;
+}
+
+.section-title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.option{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.option span{
+  font-size:14px;
+}
+
+.option small{
+  display:block;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+select{
+  background:#151d2a;
+  color:white;
+  border:1px solid var(--line);
+  padding:8px;
+  border-radius:8px;
+}
+
+input[type="checkbox"]{
+  width:20px;
+  height:20px;
+}
+
+.profile{
+  text-align:center;
+  padding:12px 0;
+}
+
+.profile img{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.profile-name{
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.info{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  padding:10px 0;
+}
+
+.back{
+  margin-top:15px;
+  width:100%;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:transparent;
+  color:var(--text);
 }
 </style>
 </head>
@@ -82,75 +243,948 @@ input{
 
 <div class="panel">
 
-<h2>UR MASUD PANEL</h2>
-<div class="subtitle">Login to access the panel</div>
+<img src="masud.png" class="logo" id="profilePic" alt="Profile">
+
+<h1>UR MASUD PANEL</h1>
+
+<div class="subtitle" id="subtitle">
+Login to access the panel
+</div>
 
 <div class="login-buttons">
-<button type="button">FACEBOOK / LOGIN</button>
-<button type="button">GMAIL / LOGIN</button>
-<button type="button">iOS / LOGIN</button>
+
+<button type="button" onclick="googleLogin()">
+GMAIL / LOGIN
+</button>
+
+<button type="button" onclick="facebookLogin()">
+FACEBOOK / LOGIN
+</button>
+
+<button type="button" onclick="iosLogin()">
+iOS / LOGIN
+</button>
+
+</div>
+
+<div class="key-title">
+Enter your 10-digit Access Key
 </div>
 
 <input
-    type="text"
-    id="code"
-    placeholder="API Key"
-    inputmode="numeric"
-    maxlength="10"
-    autocomplete="off"
+ type="text"
+ id="code"
+ inputmode="numeric"
+ maxlength="10"
+ placeholder="Enter 10-digit Key"
+ autocomplete="off"
 >
 
-<button class="access-btn" onclick="login()">ACCESS</button>
+<button class="access-btn" type="button" onclick="verifyKey()">
+ACCESS
+</button>
 
 <div id="message"></div>
 
-<div class="footer">Protected Access</div>
+<button class="menu-btn" onclick="toggleSettings()">
+⚙️ Settings
+</button>
+
+<div class="settings" id="settings">
+
+<div class="section-title">Settings</div>
+
+<div class="profile">
+<img src="masud.png" id="settingsPic" alt="Profile">
+<div class="profile-name" id="profileName">UR MASUD</div>
+</div>
+
+<button class="menu-btn" onclick="changeProfileName()">
+👤 Change Profile Name
+</button>
+
+<button class="menu-btn" onclick="changeProfilePicture()">
+🖼️ Change Profile Picture
+</button>
+
+<div class="option">
+<div>
+<span>🌐 Language</span>
+<small>Choose application language</small>
+</div>
+
+<select id="language" onchange="changeLanguage()">
+<option value="English">English</option>
+<option value="বাংলা">বাংলা</option>
+<option value="हिन्दी">हिन्दी</option>
+<option value="اردو">اردو</option>
+<option value="العربية">العربية</option>
+<option value="Español">Español</option>
+<option value="Français">Français</option>
+<option value="Deutsch">Deutsch</option>
+<option value="Português">Português</option>
+<option value="中文">中文</option>
+<option value="日本語">日本語</option>
+<option value="한국어">한국어</option>
+<option value="Русский">Русский</option>
+<option value="Türkçe">Türkçe</option>
+<option value="Italiano">Italiano</option>
+</select>
+</div>
+
+<div class="option">
+<div>
+<span>🔒 Privacy</span>
+<small>Lock privacy settings</small>
+</div>
+<input type="checkbox" id="privacyLock" onchange="privacyChanged()">
+</div>
+
+<div class="option">
+<div>
+<span>🌙 Dark Mode</span>
+<small>Switch dark / light appearance</small>
+</div>
+<input type="checkbox" id="darkMode" checked onchange="toggleDarkMode()">
+</div>
+
+<button class="menu-btn" onclick="loginSecurity()">
+🔐 Login & Security
+</button>
+
+<button class="menu-btn" onclick="forgotAccess()">
+🔑 Forgot Access Key
+</button>
+
+<button class="menu-btn" onclick="helpSupport()">
+🆘 Help & Support
+</button>
+
+<button class="menu-btn" onclick="aboutApp()">
+ℹ️ About
+</button>
+
+<div class="info" id="settingsInfo"></div>
+
+<button class="back" onclick="toggleSettings()">
+Close Settings
+</button>
+
+</div>
+
+<div class="footer">
+MADE BY MASUD<br>
+TERMUX | ANDROID | BANGLADESH<br>
+App Version: 1.0.0
+</div>
 
 </div>
 
 <script>
-async function login() {
-    const code = document.getElementById("code").value.trim();
-    const message = document.getElementById("message");
 
-    if (!/^\d{10}$/.test(code)) {
-        message.className = "error";
-        message.innerText = "✕ Enter a valid 10-digit API Key";
-        return;
-    }
-
-    message.className = "";
-    message.innerText = "Checking...";
-
-    try {
-        const response = await fetch(
-            "/verify",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    api_key: code
-                })
-            }
-        );
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-            message.className = "success";
-            message.innerText = "✓ Access granted!";
-        } else {
-            message.className = "error";
-            message.innerText = "✕ Invalid API Key";
-        }
-
-    } catch (error) {
-        message.className = "error";
-        message.innerText = "✕ Server connection failed";
-    }
+function showMessage(text,type=""){
+ const message=document.getElementById("message");
+ message.className=type;
+ message.innerText=text;
 }
+
+async function verifyKey(){
+
+ const code=document.getElementById("code").value.trim();
+
+ if(!/^\\d{10}$/.test(code)){
+   showMessage("✕ Enter a valid 10-digit key","error");
+   return;
+ }
+
+ showMessage("Checking...");
+
+ try{
+
+   const response=await fetch("/verify",{
+     method:"POST",
+     headers:{
+       "Content-Type":"application/json"
+     },
+     body:JSON.stringify({
+       api_key:code
+     })
+   });
+
+   const result=await response.json();
+
+   if(response.ok && result.success){
+     showMessage("✓ Access granted!","success");
+   }else{
+     showMessage("✕ Invalid Access Key","error");
+   }
+
+ }catch(error){
+   showMessage("✕ Server connection failed","error");
+ }
+}
+
+function googleLogin(){
+ window.open(
+  "https://accounts.google.com/",
+  "_blank"
+ );
+}
+
+function facebookLogin(){
+ window.open(
+  "https://www.facebook.com/",
+  "_blank"
+ );
+}
+
+function iosLogin(){
+ window.open(
+  "https://appleid.apple.com/",
+  "_blank"
+ );
+}
+
+function toggleSettings(){
+ document.getElementById("settings").classList.toggle("show");
+}
+
+function toggleDarkMode(){
+
+ const dark=document.getElementById("darkMode").checked;
+
+ if(dark){
+   document.body.classList.remove("light");
+   localStorage.setItem("darkMode","1");
+ }else{
+   document.body.classList.add("light");
+   localStorage.setItem("darkMode","0");
+ }
+}
+
+function changeLanguage(){
+
+ const lang=document.getElementById("language").value;
+
+ localStorage.setItem("language",lang);
+
+ document.getElementById("settingsInfo").innerText=
+ "Selected language: "+lang;
+}
+
+function privacyChanged(){
+
+ const locked=document.getElementById("privacyLock").checked;
+
+ if(locked){
+   localStorage.setItem("privacyLock","1");
+   document.getElementById("settingsInfo").innerText=
+   "🔒 Privacy Lock is ON";
+ }else{
+   localStorage.setItem("privacyLock","0");
+   document.getElementById("settingsInfo").innerText=
+   "Privacy Lock is OFF";
+ }
+}
+
+function changeProfileName(){
+
+ const oldName=
+ localStorage.getItem("profileName") || "UR MASUD";
+
+ const name=prompt(
+ "Enter your new profile name:",
+ oldName
+ );
+
+ if(name && name.trim()){
+
+   const cleanName=name.trim();
+
+   localStorage.setItem("profileName",cleanName);
+
+   document.getElementById("profileName").innerText=
+   cleanName;
+ }
+}
+
+function changeProfilePicture(){
+
+ const url=prompt(
+ "Enter profile picture URL:"
+ );
+
+ if(url && url.trim()){
+
+   const cleanUrl=url.trim();
+
+   localStorage.setItem("profilePic",cleanUrl);
+
+   document.getElementById("profilePic").src=cleanUrl;
+   document.getElementById("settingsPic").src=cleanUrl;
+ }
+}
+
+function loginSecurity(){
+
+ document.getElementById("settingsInfo").innerText=
+ "🔐 Login & Security: Access Key verification is enabled. Keep your key private.";
+}
+
+function forgotAccess(){
+
+ const email="mailto:mgshakil520@gmail.com"+
+ "?subject=Forgot Access Key"+
+ "&body=Hello, I need help with my UR MASUD PANEL access.";
+
+ window.location.href=email;
+}
+
+function helpSupport(){
+
+ const email="mailto:mgshakil520@gmail.com"+
+ "?subject=UR MASUD PANEL - Help & Support"+
+ "&body=Hello, I need help with my app.";
+
+ window.location.href=email;
+}
+
+function aboutApp(){
+
+ document.getElementById("settingsInfo").innerText=
+ "UR MASUD PANEL\\nVersion 1.0.0\\n\\nA secure access panel with login, privacy, language, security and support features.";
+}
+
+window.onload=function(){
+
+ const dark=localStorage.getItem("darkMode");
+
+ if(dark==="0"){
+   document.getElementById("darkMode").checked=false;
+   document.body.classList.add("light");
+ }
+
+ const name=localStorage.getItem("profileName");
+
+ if(name){
+   document.getElementById("profileName").innerText=name;
+ }
+
+ const pic=localStorage.getItem("profilePic");
+
+ if(pic){
+   document.getElementById("profilePic").src=pic;
+   document.getElementById("settingsPic").src=pic;
+ }
+
+ const privacy=localStorage.getItem("privacyLock");
+
+ if(privacy==="1"){
+   document.getElementById("privacyLock").checked=true;
+ }
+
+ const lang=localStorage.getItem("language");
+
+ if(lang){
+   document.getElementById("language").value=lang;
+ }
+};
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UR MASUD PANEL</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#050505;
+  --card:#0f141c;
+  --text:#fff;
+  --muted:#aeb8c8;
+  --line:#293444;
+  --blue:#168cff;
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#18283d,#050505 55%);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+body.light{
+  --bg:#f4f6f8;
+  --card:#fff;
+  --text:#111;
+  --muted:#59636f;
+  --line:#d5dbe2;
+  background:#f4f6f8;
+}
+
+.panel{
+  width:100%;
+  max-width:430px;
+  background:rgba(15,20,28,.96);
+  border:1px solid rgba(0,170,255,.35);
+  border-radius:22px;
+  padding:28px 22px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(0,140,255,.15);
+}
+
+body.light .panel{
+  background:#fff;
+}
+
+.logo{
+  width:110px;
+  height:110px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:15px;
+}
+
+h1{
+  font-size:27px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.login-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.login-buttons button,
+.menu-btn{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#151d2a;
+  color:var(--text);
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.menu-btn{
+  text-align:left;
+  margin-top:8px;
+}
+
+.login-buttons button:active,
+.menu-btn:active,
+.access-btn:active{
+  transform:scale(.98);
+}
+
+.key-title{
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+#code{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  outline:none;
+  background:#0a0f19;
+  color:white;
+  text-align:center;
+  font-size:17px;
+  letter-spacing:2px;
+}
+
+#code:focus{
+  border-color:var(--blue);
+}
+
+.access-btn{
+  width:100%;
+  margin-top:12px;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:var(--blue);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#message{
+  min-height:22px;
+  margin-top:15px;
+  font-size:14px;
+}
+
+.success{color:#38e58c}
+.error{color:#ff5d6c}
+
+.footer{
+  margin-top:20px;
+  color:#68758a;
+  font-size:11px;
+  line-height:1.6;
+}
+
+.settings{
+  display:none;
+  margin-top:20px;
+  text-align:left;
+  border-top:1px solid var(--line);
+  padding-top:18px;
+}
+
+.settings.show{
+  display:block;
+}
+
+.section-title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.option{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.option span{
+  font-size:14px;
+}
+
+.option small{
+  display:block;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+select{
+  background:#151d2a;
+  color:white;
+  border:1px solid var(--line);
+  padding:8px;
+  border-radius:8px;
+}
+
+input[type="checkbox"]{
+  width:20px;
+  height:20px;
+}
+
+.profile{
+  text-align:center;
+  padding:12px 0;
+}
+
+.profile img{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.profile-name{
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.info{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  padding:10px 0;
+}
+
+.back{
+  margin-top:15px;
+  width:100%;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:transparent;
+  color:var(--text);
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+<img src="masud.png" class="logo" id="profilePic" alt="Profile">
+
+<h1>UR MASUD PANEL</h1>
+
+<div class="subtitle" id="subtitle">
+Login to access the panel
+</div>
+
+<div class="login-buttons">
+
+<button type="button" onclick="googleLogin()">
+GMAIL / LOGIN
+</button>
+
+<button type="button" onclick="facebookLogin()">
+FACEBOOK / LOGIN
+</button>
+
+<button type="button" onclick="iosLogin()">
+iOS / LOGIN
+</button>
+
+</div>
+
+<div class="key-title">
+Enter your 10-digit Access Key
+</div>
+
+<input
+ type="text"
+ id="code"
+ inputmode="numeric"
+ maxlength="10"
+ placeholder="Enter 10-digit Key"
+ autocomplete="off"
+>
+
+<button class="access-btn" type="button" onclick="verifyKey()">
+ACCESS
+</button>
+
+<div id="message"></div>
+
+<button class="menu-btn" onclick="toggleSettings()">
+⚙️ Settings
+</button>
+
+<div class="settings" id="settings">
+
+<div class="section-title">Settings</div>
+
+<div class="profile">
+<img src="masud.png" id="settingsPic" alt="Profile">
+<div class="profile-name" id="profileName">UR MASUD</div>
+</div>
+
+<button class="menu-btn" onclick="changeProfileName()">
+👤 Change Profile Name
+</button>
+
+<button class="menu-btn" onclick="changeProfilePicture()">
+🖼️ Change Profile Picture
+</button>
+
+<div class="option">
+<div>
+<span>🌐 Language</span>
+<small>Choose application language</small>
+</div>
+
+<select id="language" onchange="changeLanguage()">
+<option value="English">English</option>
+<option value="বাংলা">বাংলা</option>
+<option value="हिन्दी">हिन्दी</option>
+<option value="اردو">اردو</option>
+<option value="العربية">العربية</option>
+<option value="Español">Español</option>
+<option value="Français">Français</option>
+<option value="Deutsch">Deutsch</option>
+<option value="Português">Português</option>
+<option value="中文">中文</option>
+<option value="日本語">日本語</option>
+<option value="한국어">한국어</option>
+<option value="Русский">Русский</option>
+<option value="Türkçe">Türkçe</option>
+<option value="Italiano">Italiano</option>
+</select>
+</div>
+
+<div class="option">
+<div>
+<span>🔒 Privacy</span>
+<small>Lock privacy settings</small>
+</div>
+<input type="checkbox" id="privacyLock" onchange="privacyChanged()">
+</div>
+
+<div class="option">
+<div>
+<span>🌙 Dark Mode</span>
+<small>Switch dark / light appearance</small>
+</div>
+<input type="checkbox" id="darkMode" checked onchange="toggleDarkMode()">
+</div>
+
+<button class="menu-btn" onclick="loginSecurity()">
+🔐 Login & Security
+</button>
+
+<button class="menu-btn" onclick="forgotAccess()">
+🔑 Forgot Access Key
+</button>
+
+<button class="menu-btn" onclick="helpSupport()">
+🆘 Help & Support
+</button>
+
+<button class="menu-btn" onclick="aboutApp()">
+ℹ️ About
+</button>
+
+<div class="info" id="settingsInfo"></div>
+
+<button class="back" onclick="toggleSettings()">
+Close Settings
+</button>
+
+</div>
+
+<div class="footer">
+MADE BY MASUD<br>
+TERMUX | ANDROID | BANGLADESH<br>
+App Version: 1.0.0
+</div>
+
+</div>
+
+<script>
+
+function showMessage(text,type=""){
+ const message=document.getElementById("message");
+ message.className=type;
+ message.innerText=text;
+}
+
+async function verifyKey(){
+
+ const code=document.getElementById("code").value.trim();
+
+ if(!/^\\d{10}$/.test(code)){
+   showMessage("✕ Enter a valid 10-digit key","error");
+   return;
+ }
+
+ showMessage("Checking...");
+
+ try{
+
+   const response=await fetch("/verify",{
+     method:"POST",
+     headers:{
+       "Content-Type":"application/json"
+     },
+     body:JSON.stringify({
+       api_key:code
+     })
+   });
+
+   const result=await response.json();
+
+   if(response.ok && result.success){
+     showMessage("✓ Access granted!","success");
+   }else{
+     showMessage("✕ Invalid Access Key","error");
+   }
+
+ }catch(error){
+   showMessage("✕ Server connection failed","error");
+ }
+}
+
+function googleLogin(){
+ window.open(
+  "https://accounts.google.com/",
+  "_blank"
+ );
+}
+
+function facebookLogin(){
+ window.open(
+  "https://www.facebook.com/",
+  "_blank"
+ );
+}
+
+function iosLogin(){
+ window.open(
+  "https://appleid.apple.com/",
+  "_blank"
+ );
+}
+
+function toggleSettings(){
+ document.getElementById("settings").classList.toggle("show");
+}
+
+function toggleDarkMode(){
+
+ const dark=document.getElementById("darkMode").checked;
+
+ if(dark){
+   document.body.classList.remove("light");
+   localStorage.setItem("darkMode","1");
+ }else{
+   document.body.classList.add("light");
+   localStorage.setItem("darkMode","0");
+ }
+}
+
+function changeLanguage(){
+
+ const lang=document.getElementById("language").value;
+
+ localStorage.setItem("language",lang);
+
+ document.getElementById("settingsInfo").innerText=
+ "Selected language: "+lang;
+}
+
+function privacyChanged(){
+
+ const locked=document.getElementById("privacyLock").checked;
+
+ if(locked){
+   localStorage.setItem("privacyLock","1");
+   document.getElementById("settingsInfo").innerText=
+   "🔒 Privacy Lock is ON";
+ }else{
+   localStorage.setItem("privacyLock","0");
+   document.getElementById("settingsInfo").innerText=
+   "Privacy Lock is OFF";
+ }
+}
+
+function changeProfileName(){
+
+ const oldName=
+ localStorage.getItem("profileName") || "UR MASUD";
+
+ const name=prompt(
+ "Enter your new profile name:",
+ oldName
+ );
+
+ if(name && name.trim()){
+
+   const cleanName=name.trim();
+
+   localStorage.setItem("profileName",cleanName);
+
+   document.getElementById("profileName").innerText=
+   cleanName;
+ }
+}
+
+function changeProfilePicture(){
+
+ const url=prompt(
+ "Enter profile picture URL:"
+ );
+
+ if(url && url.trim()){
+
+   const cleanUrl=url.trim();
+
+   localStorage.setItem("profilePic",cleanUrl);
+
+   document.getElementById("profilePic").src=cleanUrl;
+   document.getElementById("settingsPic").src=cleanUrl;
+ }
+}
+
+function loginSecurity(){
+
+ document.getElementById("settingsInfo").innerText=
+ "🔐 Login & Security: Access Key verification is enabled. Keep your key private.";
+}
+
+function forgotAccess(){
+
+ const email="mailto:mgshakil520@gmail.com"+
+ "?subject=Forgot Access Key"+
+ "&body=Hello, I need help with my UR MASUD PANEL access.";
+
+ window.location.href=email;
+}
+
+function helpSupport(){
+
+ const email="mailto:mgshakil520@gmail.com"+
+ "?subject=UR MASUD PANEL - Help & Support"+
+ "&body=Hello, I need help with my app.";
+
+ window.location.href=email;
+}
+
+function aboutApp(){
+
+ document.getElementById("settingsInfo").innerText=
+ "UR MASUD PANEL\\nVersion 1.0.0\\n\\nA secure access panel with login, privacy, language, security and support features.";
+}
+
+window.onload=function(){
+
+ const dark=localStorage.getItem("darkMode");
+
+ if(dark==="0"){
+   document.getElementById("darkMode").checked=false;
+   document.body.classList.add("light");
+ }
+
+ const name=localStorage.getItem("profileName");
+
+ if(name){
+   document.getElementById("profileName").innerText=name;
+ }
+
+ const pic=localStorage.getItem("profilePic");
+
+ if(pic){
+   document.getElementById("profilePic").src=pic;
+   document.getElementById("settingsPic").src=pic;
+ }
+
+ const privacy=localStorage.getItem("privacyLock");
+
+ if(privacy==="1"){
+   document.getElementById("privacyLock").checked=true;
+ }
+
+ const lang=localStorage.getItem("language");
+
+ if(lang){
+   document.getElementById("language").value=lang;
+ }
+};
+
 </script>
 
 </body>
